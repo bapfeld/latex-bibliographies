@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Brendan Apfeld">
+  <meta name="dcterms.date" content="2016-11-18">
+  <title>Bibliographies and LaTeX</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Bibliographies and LaTeX</h1>
+  <h2 class="author">Brendan Apfeld</h2>
+  <h3 class="date">November 18, 2016</h3>
+</section>
+
+<section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section><section id="dealing-with-bibliographies-in" class="slide level2">
+<h1>Dealing with Bibliographies in </h1>
+<ul>
+<li class="fragment">There are three general concerns
+<ul>
+<li class="fragment">Generating (and maintaining) a &quot;Bib&quot; file</li>
+<li class="fragment">Entering citations into your document</li>
+<li class="fragment">Getting to turn the first two concerns into something usable</li>
+</ul></li>
+<li class="fragment">Other tweaks
+<ul>
+<li class="fragment">Specific formatting requirements</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="the-bib-file" class="titleslide slide level1"><h1>The Bib File</h1></section><section id="what-is-a-bib-file" class="slide level2">
+<h1>What is a &quot;Bib&quot; File?</h1>
+<ul>
+<li class="fragment">A bib file, noted with a <code>.bib</code> extension, is a plain text file that contains a list of your citations
+<ul>
+<li class="fragment">These entries include
+<ul>
+<li class="fragment">Author</li>
+<li class="fragment">Title</li>
+<li class="fragment">Etc.</li>
+<li class="fragment">Citekey</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="example-bib-file" class="slide level2">
+<h1>Example Bib File</h1>
+<figure>
+<img src="images/basic_bib.png" />
+</figure>
+</section><section id="how-to-make-a-bib-file" class="slide level2">
+<h1>How to Make a bib file</h1>
+<ul>
+<li class="fragment">Do it by hand
+<ul>
+<li class="fragment">Google Scholar makes getting the citation easy</li>
+<li class="fragment">But it means that all you end up with is this goofy file</li>
+</ul></li>
+<li class="fragment">Use a .bib file app manager like BibDesk
+<ul>
+<li class="fragment">Relatively easy to use</li>
+<li class="fragment">Adds tools like keywords and groups</li>
+</ul></li>
+</ul>
+</section><section id="bibdesk" class="slide level2">
+<h1>BibDesk</h1>
+<figure>
+<img src="images/bib_desk.png" />
+</figure>
+</section><section id="how-to-make-a-bib-file-1" class="slide level2">
+<h1>How to Make a bib file</h1>
+<ul>
+<li class="fragment">Use a full &quot;point-and-click&quot; manager like Zotero or Mendeley</li>
+</ul>
+</section><section id="zotero" class="slide level2">
+<h1>Zotero</h1>
+<figure>
+<img src="images/zotero.png" />
+</figure>
+</section><section id="zotero-or-similar" class="slide level2">
+<h1>Zotero (or similar)</h1>
+<ul>
+<li class="fragment">Advantages
+<ul>
+<li class="fragment">Easy to use</li>
+<li class="fragment">Complex groups/collections/tags</li>
+<li class="fragment">Notes</li>
+<li class="fragment">Attach files and index them for search</li>
+<li class="fragment">Has options for Word, if you ever need to go that route</li>
+</ul></li>
+<li class="fragment">Disadvantages
+<ul>
+<li class="fragment">Can slow down with larger bibliographies</li>
+<li class="fragment">&quot;Point-and-click&quot; convenience is ultimately slower</li>
+<li class="fragment">Possibly not future-proof</li>
+</ul></li>
+</ul>
+</section><section id="my-zotero-use" class="slide level2">
+<h1>My Zotero Use</h1>
+<figure>
+<img src="images/better_bibtex.png" />
+</figure>
+</section><section id="my-zotero-use-1" class="slide level2">
+<h1>My Zotero Use</h1>
+<ul>
+<li class="fragment">Adjust my citation key default</li>
+<li class="fragment">Automatic export to bib file</li>
+</ul>
+</section></section>
+<section><section id="citations---overview" class="titleslide slide level1"><h1>Citations - Overview</h1></section><section id="natbib-vs-biblatex" class="slide level2">
+<h1>Natbib vs BibLaTeX</h1>
+<ul>
+<li class="fragment">There are two citation packages options: &quot;natbib&quot; and &quot;biblatex&quot;
+<ul>
+<li class="fragment">They use different backend programs to process the citations (bibtex and biber, respectively)</li>
+<li class="fragment">The differences are pretty small between the two, but there are some incompatibilities</li>
+</ul></li>
+<li class="fragment">You have to make a choice up front when generating your bib file
+<ul>
+<li class="fragment">The choice will affect what you put into your file, but other than that it shouldn't matter very much</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="citations-using-natbib" class="titleslide slide level1"><h1>Citations Using natbib</h1></section><section id="the-preamble" class="slide level2">
+<h1>The Preamble</h1>
+<ul>
+<li class="fragment"><code>\usepackage{natbib}</code></li>
+<li class="fragment">Well that's easy!</li>
+</ul>
+</section><section id="citations-in-the-document" class="slide level2">
+<h1>Citations in the Document</h1>
+<ul>
+<li class="fragment"><code>\citep{&lt;citekey&gt;}</code> for an parenthetical citation</li>
+<li class="fragment"><code>\citep[&lt;pages&gt;]{&lt;citekey&gt;}</code> for parenthetical with a page citation</li>
+<li class="fragment"><code>\citet{&lt;citekey&gt;}</code> for a text citation</li>
+<li class="fragment"><code>\citeyear{&lt;citekey&gt;}</code> for just the year citation</li>
+<li class="fragment">There are some other options, but these are the most common</li>
+</ul>
+</section><section id="references-page" class="slide level2">
+<h1>References Page</h1>
+<pre><code>\clearpage % to add a page break
+\bibliographystyle{apsr} % assuming you have apsr.bst saved in the correct location
+\bibliography{&lt;your_bib_file&gt;}</code></pre>
+</section><section id="compiling-into-a-pdf" class="slide level2">
+<h1>Compiling into a pdf</h1>
+<ul>
+<li class="fragment">To compile within TeXworks (or similar):
+<ul>
+<li class="fragment">Compile once as pdfLaTeX</li>
+<li class="fragment">Compile a second time as BibTeX</li>
+<li class="fragment">Compile a third time as pdfLaTeX</li>
+<li class="fragment">Compile a fourth time as pdfLaTeX</li>
+</ul></li>
+</ul>
+</section><section id="some-notes-on-natbib" class="slide level2">
+<h1>Some Notes on natbib</h1>
+<ul>
+<li class="fragment">There are lots of style files out there
+<ul>
+<li class="fragment">You can save it in the working directory for your document or <code>~/Library/texmf/bibtex/bst</code> for global access (on Mac, not sure about Windows)</li>
+</ul></li>
+<li class="fragment">The bib file should also be placed in the working directory for your document
+<ul>
+<li class="fragment">If it's not, you can use an absolute path to direct to it</li>
+</ul></li>
+<li class="fragment">But it struggles with foreign characters</li>
+</ul>
+</section></section>
+<section><section id="citations-using-biblatex" class="titleslide slide level1"><h1>Citations Using biblatex</h1></section><section id="the-preamble-1" class="slide level2">
+<h1>The Preamble</h1>
+<ul>
+<li class="fragment"><code>\usepackage[style=authoryear, url=false, doi=false]{biblatex}</code></li>
+<li class="fragment"><code>\addbibresource{&lt;your_bib_file&gt;}</code></li>
+<li class="fragment">Also pretty easy!
+<ul>
+<li class="fragment">Note the second line implies you could use multiple bib files</li>
+</ul></li>
+</ul>
+</section><section id="citations-in-the-document-1" class="slide level2">
+<h1>Citations in the Document</h1>
+<ul>
+<li class="fragment"><code>\autocite{&lt;citekey&gt;}</code> for almost everything</li>
+<li class="fragment"><code>\textcite{&lt;citekey&gt;}</code> for a text citation</li>
+<li class="fragment"><code>\autocite[&lt;page_no&gt;]{&lt;citekey&gt;}</code> also works for page numbers</li>
+<li class="fragment">You can also use things like <code>\citeyear{}</code> if you need</li>
+</ul>
+</section><section id="references-page-1" class="slide level2">
+<h1>References Page</h1>
+<pre><code>\clearpage % to add a page break
+\printbibliography</code></pre>
+</section><section id="compiling-into-a-pdf-1" class="slide level2">
+<h1>Compiling into a pdf</h1>
+<ul>
+<li class="fragment">To compile within TeXworks (or similar):
+<ul>
+<li class="fragment">Compile once as pdfLaTeX</li>
+<li class="fragment">Compile a second time with biber (may require extra setup)</li>
+<li class="fragment">Compile a third time as pdfLaTeX</li>
+<li class="fragment">Compile a fourth time as pdfLaTeX</li>
+</ul></li>
+</ul>
+</section><section id="some-notes-on-biblatex-ht-jab" class="slide level2">
+<h1>Some Notes on biblatex (ht: <a href="http://www.jabranham.com">JAB</a>)</h1>
+<ul>
+<li class="fragment">Although it solves problems with foreign/unicode characters, it has some limitations/quirks</li>
+<li class="fragment">No deep library of citation style files (but, honestly, who cares?)</li>
+<li class="fragment">Default is to put &quot;In:&quot; before the journal name; solve with (one line)
+<ul>
+<li class="fragment"><code>\renewbibmacro{in:}{\ifentrytype{article}{}   {\printtext{\bibstring{in}\intitlepunct}}}</code></li>
+</ul></li>
+</ul>
+</section><section id="also-this" class="slide level2">
+<h1>Also this:</h1>
+<ul>
+<li class="fragment">Inconsistent period placement with quotation marks; solve with:
+<ul>
+<li class="fragment"><code>\usepackage[american]{babel}</code></li>
+<li class="fragment">And to avoid a warning, also add <code>\usepackage{csquotes}</code></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="other-considerations" class="titleslide slide level1"><h1>Other Considerations</h1></section><section id="isnt-there-an-easier-way-to-compile" class="slide level2">
+<h1>Isn't there an easier way to compile!?</h1>
+<ul>
+<li class="fragment">If you happen to be using a .Rnw file in RStudio, then when you &quot;knit&quot; that, it will do all four steps for you in one fell swoop</li>
+<li class="fragment">If you compile from the command line, you can run <code>latexmk &lt;yourfile.tex&gt;</code>
+<ul>
+<li class="fragment">This allows you to set extra flags like <code>-xelatex</code> or <code>-c</code></li>
+</ul></li>
+</ul>
+</section><section id="some-cool-tricks-ht-jab" class="slide level2">
+<h1>Some cool tricks (ht: JAB)</h1>
+<ul>
+<li class="fragment">Load the hyperref package at the very end of your preamble to automatically link your text citations with your reference list
+<ul>
+<li class="fragment"><code>\usepackage{hyperref}</code></li>
+<li class="fragment">Fix its ugly box default and make links colored words instead by adding this immediately after:
+<ul>
+<li class="fragment"><code>\hypersetup{colorlinks=true}</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="one-more-trick-thanks-again-alex" class="slide level2">
+<h1>One more trick (thanks again Alex)</h1>
+<ul>
+<li class="fragment">If you keep a DOI in your bib file for your entries, you can link the title of each entry to the DOI</li>
+</ul>
+<pre><code>\newbibmacro{string+doi}[1]{%
+  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article]{title} % should be one line with next
+{\usebibmacro{string+doi}{\mkbibquote{#1}}}</code></pre>
+</section><section id="there-are-lots-of-options-for-everything" class="slide level2">
+<h1>There are lots of options for everything</h1>
+<ul>
+<li class="fragment">JFGI</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
