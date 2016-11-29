@@ -4,13 +4,21 @@
 \geometry{letterpaper}
 
 \usepackage[style=authoryear, url=false, doi=false]{biblatex}
-\addbibresource{~/bib_file.bib}
+\addbibresource{./biblatex_file.bib}
+% The next line removes "In:" from article entries in the bibliography
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
 
-\usepackage{lipsum}
-
-\title{Example File for Creating Bibliographies}
+\title{Example File for Creating Bibliographies Using BibLaTeX}
 \author{Brendan Apfeld}
-\date{}
 
 \begin{document}
 \maketitle
+
+In this document I use the \texttt{biblatex} package, so I will use \texttt{\\autocite\{\}} for most citations.
+
+For example, I could be writing here about something really interesting and need to add a citation about it \autocite{collier_2011}. Or I might need one with a specific page \autocite[34-40]{lijphart_1971}. Or here's an inline citation for \textcite{sartori_1970}.
+
+\clearpage % To add a page break
+\printbibliography % To create the bibliography
+
+\end{document}
