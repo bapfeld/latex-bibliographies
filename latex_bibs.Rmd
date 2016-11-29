@@ -114,10 +114,12 @@ fontsize: bigger
 
 # Citations Using biblatex
 ## The Preamble
-* `\usepackage[style=authoryear, url=false, doi=false]{biblatex}`
-* `\addbibresource{<your_bib_file>}`
+```
+\usepackage[style=authoryear, url=false, doi=false]{biblatex}
+\addbibresource{<your_bib_file>}
+```
 * Also pretty easy!
-    + Note the second line implies you could use multiple bib files
+* Note the second line implies you could use multiple bib files
 
 ## Citations in the Document
 * `\autocite{<citekey>}` for almost everything
@@ -139,11 +141,14 @@ fontsize: bigger
     + Compile a fourth time as pdfLaTeX
 
 ## Some Notes on biblatex (ht: [JAB](http://www.jabranham.com))
-* Although it solves problems with foreign/unicode characters, it has some limitations/quirks
-* No deep library of citation style files (but, honestly, who cares?)
-* Default is to put "In:" before the journal name; solve with (one line)
-    + `\renewbibmacro{in:}{\ifentrytype{article}{}
-      {\printtext{\bibstring{in}\intitlepunct}}}`
+* Biblatex solves problems with foreign/unicode characters
+* But there are limitations:
+    + No deep library of citation style files (but, honestly, who cares?)
+    + Default is to put "In:" before the journal name; solve with (one line)
+```
+\renewbibmacro{in:}{\ifentrytype{article}{}
+{\printtext{\bibstring{in}\intitlepunct}}}
+```
 
 ## Also this:
 * Inconsistent period placement with quotation marks; solve with:

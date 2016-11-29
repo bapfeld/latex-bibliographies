@@ -89,13 +89,13 @@
 </section>
 
 <section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section><section id="dealing-with-bibliographies-in" class="slide level2">
-<h1>Dealing with Bibliographies in </h1>
+<h2>Dealing with Bibliographies in </h2>
 <ul>
 <li>There are three general concerns
 <ul>
 <li>Generating (and maintaining) a “Bib” file</li>
 <li>Entering citations into your document</li>
-<li>Getting to turn the first two concerns into something usable</li>
+<li>Getting to turn the first two items into something usable</li>
 </ul></li>
 <li>Other tweaks
 <ul>
@@ -104,7 +104,7 @@
 </ul>
 </section></section>
 <section><section id="the-bib-file" class="titleslide slide level1"><h1>The Bib File</h1></section><section id="what-is-a-bib-file" class="slide level2">
-<h1>What is a “Bib” File?</h1>
+<h2>What is a “Bib” File?</h2>
 <ul>
 <li>A bib file, noted with a <code>.bib</code> extension, is a plain text file that contains a list of your citations
 <ul>
@@ -118,10 +118,10 @@
 </ul></li>
 </ul>
 </section><section id="example-bib-file" class="slide level2">
-<h1>Example Bib File</h1>
+<h2>Example Bib File</h2>
 <p><img src="images/basic_bib.png" /></p>
 </section><section id="how-to-make-a-bib-file" class="slide level2">
-<h1>How to Make a bib file</h1>
+<h2>How to Make a bib file</h2>
 <ul>
 <li>Do it by hand
 <ul>
@@ -135,18 +135,18 @@
 </ul></li>
 </ul>
 </section><section id="bibdesk" class="slide level2">
-<h1>BibDesk</h1>
+<h2>BibDesk</h2>
 <p><img src="images/bib_desk.png" /></p>
 </section><section id="how-to-make-a-bib-file-1" class="slide level2">
-<h1>How to Make a bib file</h1>
+<h2>How to Make a bib file</h2>
 <ul>
 <li>Use a full “point-and-click” manager like Zotero or Mendeley</li>
 </ul>
 </section><section id="zotero" class="slide level2">
-<h1>Zotero</h1>
+<h2>Zotero</h2>
 <p><img src="images/zotero.png" /></p>
 </section><section id="zotero-or-similar" class="slide level2">
-<h1>Zotero (or similar)</h1>
+<h2>Zotero (or similar)</h2>
 <ul>
 <li>Advantages
 <ul>
@@ -164,17 +164,17 @@
 </ul></li>
 </ul>
 </section><section id="my-zotero-use" class="slide level2">
-<h1>My Zotero Use</h1>
+<h2>My Zotero Use</h2>
 <p><img src="images/better_bibtex.png" /></p>
 </section><section id="my-zotero-use-1" class="slide level2">
-<h1>My Zotero Use</h1>
+<h2>My Zotero Use</h2>
 <ul>
 <li>Adjust my citation key default</li>
 <li>Automatic export to bib file</li>
 </ul>
 </section></section>
 <section><section id="citations---overview" class="titleslide slide level1"><h1>Citations - Overview</h1></section><section id="natbib-vs-biblatex" class="slide level2">
-<h1>Natbib vs BibLaTeX</h1>
+<h2>Natbib vs BibLaTeX</h2>
 <ul>
 <li>There are two citation packages options: “natbib” and “biblatex”
 <ul>
@@ -188,13 +188,13 @@
 </ul>
 </section></section>
 <section><section id="citations-using-natbib" class="titleslide slide level1"><h1>Citations Using natbib</h1></section><section id="the-preamble" class="slide level2">
-<h1>The Preamble</h1>
+<h2>The Preamble</h2>
 <ul>
 <li><code>\usepackage{natbib}</code></li>
 <li>Well that’s easy!</li>
 </ul>
 </section><section id="citations-in-the-document" class="slide level2">
-<h1>Citations in the Document</h1>
+<h2>Citations in the Document</h2>
 <ul>
 <li><code>\citep{&lt;citekey&gt;}</code> for an parenthetical citation</li>
 <li><code>\citep[&lt;pages&gt;]{&lt;citekey&gt;}</code> for parenthetical with a page citation</li>
@@ -203,12 +203,12 @@
 <li>There are some other options, but these are the most common</li>
 </ul>
 </section><section id="references-page" class="slide level2">
-<h1>References Page</h1>
+<h2>References Page</h2>
 <pre><code>\clearpage % to add a page break
 \bibliographystyle{apsr} % assuming you have apsr.bst saved in the correct location
 \bibliography{&lt;your_bib_file&gt;}</code></pre>
 </section><section id="compiling-into-a-pdf" class="slide level2">
-<h1>Compiling into a pdf</h1>
+<h2>Compiling into a pdf</h2>
 <ul>
 <li>To compile within TeXworks (or similar):
 <ul>
@@ -219,7 +219,7 @@
 </ul></li>
 </ul>
 </section><section id="some-notes-on-natbib" class="slide level2">
-<h1>Some Notes on natbib</h1>
+<h2>Some Notes on natbib</h2>
 <ul>
 <li>There are lots of style files out there
 <ul>
@@ -233,17 +233,15 @@
 </ul>
 </section></section>
 <section><section id="citations-using-biblatex" class="titleslide slide level1"><h1>Citations Using biblatex</h1></section><section id="the-preamble-1" class="slide level2">
-<h1>The Preamble</h1>
+<h2>The Preamble</h2>
+<pre><code>\usepackage[style=authoryear, url=false, doi=false]{biblatex}
+\addbibresource{&lt;your_bib_file&gt;}</code></pre>
 <ul>
-<li><code>\usepackage[style=authoryear, url=false, doi=false]{biblatex}</code></li>
-<li><code>\addbibresource{&lt;your_bib_file&gt;}</code></li>
-<li>Also pretty easy!
-<ul>
+<li>Also pretty easy!</li>
 <li>Note the second line implies you could use multiple bib files</li>
-</ul></li>
 </ul>
 </section><section id="citations-in-the-document-1" class="slide level2">
-<h1>Citations in the Document</h1>
+<h2>Citations in the Document</h2>
 <ul>
 <li><code>\autocite{&lt;citekey&gt;}</code> for almost everything</li>
 <li><code>\textcite{&lt;citekey&gt;}</code> for a text citation</li>
@@ -251,11 +249,11 @@
 <li>You can also use things like <code>\citeyear{}</code> if you need</li>
 </ul>
 </section><section id="references-page-1" class="slide level2">
-<h1>References Page</h1>
+<h2>References Page</h2>
 <pre><code>\clearpage % to add a page break
 \printbibliography</code></pre>
 </section><section id="compiling-into-a-pdf-1" class="slide level2">
-<h1>Compiling into a pdf</h1>
+<h2>Compiling into a pdf</h2>
 <ul>
 <li>To compile within TeXworks (or similar):
 <ul>
@@ -266,17 +264,19 @@
 </ul></li>
 </ul>
 </section><section id="some-notes-on-biblatex-ht-jab" class="slide level2">
-<h1>Some Notes on biblatex (ht: <a href="http://www.jabranham.com">JAB</a>)</h1>
+<h2>Some Notes on biblatex (ht: <a href="http://www.jabranham.com">JAB</a>)</h2>
 <ul>
-<li>Although it solves problems with foreign/unicode characters, it has some limitations/quirks</li>
+<li>Biblatex solves problems with foreign/unicode characters</li>
+<li>But there are limitations:
+<ul>
 <li>No deep library of citation style files (but, honestly, who cares?)</li>
-<li>Default is to put “In:” before the journal name; solve with (one line)
-<ul>
-<li><code>\renewbibmacro{in:}{\ifentrytype{article}{}   {\printtext{\bibstring{in}\intitlepunct}}}</code></li>
+<li><p>Default is to put “In:” before the journal name; solve with (one line)</p>
+<pre><code>\renewbibmacro{in:}{\ifentrytype{article}{}
+{\printtext{\bibstring{in}\intitlepunct}}}</code></pre></li>
 </ul></li>
 </ul>
 </section><section id="also-this" class="slide level2">
-<h1>Also this:</h1>
+<h2>Also this:</h2>
 <ul>
 <li>Inconsistent period placement with quotation marks; solve with:
 <ul>
@@ -286,7 +286,7 @@
 </ul>
 </section></section>
 <section><section id="other-considerations" class="titleslide slide level1"><h1>Other Considerations</h1></section><section id="isnt-there-an-easier-way-to-compile" class="slide level2">
-<h1>Isn’t there an easier way to compile!?</h1>
+<h2>Isn’t there an easier way to compile!?</h2>
 <ul>
 <li>If you happen to be using a .Rnw file in RStudio, then when you “knit” that, it will do all four steps for you in one fell swoop</li>
 <li>If you compile from the command line, you can run <code>latexmk &lt;yourfile.tex&gt;</code>
@@ -295,7 +295,7 @@
 </ul></li>
 </ul>
 </section><section id="some-cool-tricks-ht-jab" class="slide level2">
-<h1>Some cool tricks (ht: JAB)</h1>
+<h2>Some cool tricks (ht: JAB)</h2>
 <ul>
 <li>Load the hyperref package at the very end of your preamble to automatically link your text citations with your reference list
 <ul>
@@ -307,7 +307,7 @@
 </ul></li>
 </ul>
 </section><section id="one-more-trick-thanks-again-alex" class="slide level2">
-<h1>One more trick (thanks again Alex)</h1>
+<h2>One more trick (thanks again Alex)</h2>
 <ul>
 <li>If you keep a DOI in your bib file for your entries, you can link the title of each entry to the DOI</li>
 </ul>
@@ -317,7 +317,7 @@
 \DeclareFieldFormat[article]{title} % should be one line with next
 {\usebibmacro{string+doi}{\mkbibquote{#1}}}</code></pre>
 </section><section id="there-are-lots-of-options-for-everything" class="slide level2">
-<h1>There are lots of options for everything</h1>
+<h2>There are lots of options for everything</h2>
 <ul>
 <li>JFGI</li>
 </ul>
